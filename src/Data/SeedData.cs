@@ -37,6 +37,19 @@ namespace SisGerenciador.src.Data
                     context.Instituicoes.AddRange(instituicoes);
                     context.SaveChanges();
                 }
+
+                if (!context.Disciplinas.Any())
+                {
+                    var disciplinas = new List<Disciplina>
+                    {
+                        new Disciplina { Descricao = "Prática de Ensino Orientada", Credito = 8 },
+                        new Disciplina { Descricao = "Web 2", Credito = 6 },
+                        new Disciplina { Descricao = "Teste de Software", Credito = 4 }
+                    };
+
+                    context.Disciplinas.AddRange(disciplinas);
+                    context.SaveChanges();
+                }
             }
         }
     }

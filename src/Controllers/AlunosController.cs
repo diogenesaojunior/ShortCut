@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using PagedList;
 using SisGerenciador.src.Data;
 using SisGerenciador.src.Models;
 
@@ -19,11 +20,19 @@ namespace SisGerenciador.Views
             _context = context;
         }
 
-        // GET: Alunos
-        public async Task<IActionResult> Index()
+        //GET: Alunos
+        public ViewResult Index(string searchString)
         {
             var meuContexto = _context.Alunos.Include(a => a.Instituicao);
-            return View(await meuContexto.ToListAsync());
+
+            var alunos = from s in _context.Alunos
+                         select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                alunos = alunos.Where(s => s.Nome.ToUpper().Contains(searchString.ToUpper()));
+            }
+            return View(alunos.ToList());
         }
 
         // GET: Alunos/Details/5

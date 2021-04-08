@@ -9,8 +9,8 @@ namespace SisGerenciador.Models.Validations
     {
         public CursoValidator()
         {
-            RuleFor(c => c.LimiteQtdPeriodoCurricular)
-            .LessThan(customer => customer.QtdPeriodo).WithMessage("O limite precisa ser maior que quantidade de períodos");
+            RuleFor(c => c.QtdPeriodo)
+            .LessThan(customer => customer.LimiteQtdPeriodoCurricular).WithMessage("O limite precisa ser maior que quantidade de períodos");
         }
     }
 }
