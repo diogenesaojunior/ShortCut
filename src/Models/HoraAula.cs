@@ -13,7 +13,7 @@ namespace SisGerenciador.src.Models
 
         [Display(Name = "Descrição")]
         [Required(ErrorMessage = "Descrição é obrigatória", AllowEmptyStrings = false)]
-        [StringLength(255, MinimumLength = 4, ErrorMessage = "A descrição deve conter no mínimo 4 e máximo 255 caracteres.")]
+        [StringLength(1, ErrorMessage = "A descrição deve conter no máximo 1 caractere.")]
         public string Descricao { get; set; }
 
         [Display(Name = "Hora de Início")]

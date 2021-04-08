@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -50,6 +51,29 @@ namespace SisGerenciador.src.Data
                     context.Disciplinas.AddRange(disciplinas);
                     context.SaveChanges();
                 }
+
+                if (!context.PeriodoCurriculares.Any())
+                {
+                    var periodosCurriculares = new List<PeriodoCurricular>
+                    {
+                        new PeriodoCurricular { NumOrdinal = 1},
+                        new PeriodoCurricular { NumOrdinal = 2},
+                        new PeriodoCurricular { NumOrdinal = 3},
+                        new PeriodoCurricular { NumOrdinal = 4},
+                        new PeriodoCurricular { NumOrdinal = 5},
+                        new PeriodoCurricular { NumOrdinal = 6},
+                        new PeriodoCurricular { NumOrdinal = 7},
+                        new PeriodoCurricular { NumOrdinal = 8},
+                        new PeriodoCurricular { NumOrdinal = 9},
+                        new PeriodoCurricular { NumOrdinal = 10},
+                        new PeriodoCurricular { NumOrdinal = 11},
+                        new PeriodoCurricular { NumOrdinal = 12},
+                    };
+
+                    context.PeriodoCurriculares.AddRange(periodosCurriculares);
+                    context.SaveChanges();
+                }
+
             }
         }
     }
