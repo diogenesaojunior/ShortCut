@@ -10,11 +10,22 @@ namespace SisGerenciador.src.Models
 {
     public class Usuario : IdentityUser
     {
-        [NotMapped]
-        public bool IsAdmin { get; set; }
+        [Key]
+        public int Id { get; set; }
 
-        [Required(ErrorMessage = "Nome do usuario é obrigatorio.")]
-        [MinLength(6, ErrorMessage = "Nome inválido")]
+        [Display(Name = "CPF")]
+        [StringLength(11)]
+        [Required(ErrorMessage = "CPF é obrigatório", AllowEmptyStrings = false)]
+        public string CPF { get; set; }
+
+        [Display(Name = "Nome")]
+        [StringLength(500)]
+        [Required(ErrorMessage = "Nome é obrigatório", AllowEmptyStrings = false)]
+        [RegularExpression(@"^[a-zA-Z''-'\s]{1,40}$", ErrorMessage = "Números e caracteres especiais não são permitidos no nome.")]
         public string Nome { get; set; }
+
+        [Display(Name = "Matricula")]
+        [Required(ErrorMessage = "Matricula é obrigatória")]
+        public int Matricula { get; set; }
     }
 }
