@@ -21,6 +21,7 @@ namespace SisGerenciador.Areas.Identity
                         context.Configuration.GetConnectionString("MeuContexto")));
 
                 services.AddDefaultIdentity<SisGerenciadorUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddRoles<IdentityRole>()    
                     .AddEntityFrameworkStores<SisGerenciadorContext>();
             });
         }
