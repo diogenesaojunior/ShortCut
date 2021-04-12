@@ -10,7 +10,7 @@ using SisGerenciador.src.Models;
 
 namespace SisGerenciador.Views
 {
-    [Authorize(Roles = "Gerente")]
+    [Authorize]
     public class AlunosController : Controller
     {
         private readonly MeuContexto _context;

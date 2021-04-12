@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 using SisGerenciador.src.Data;
 using Microsoft.EntityFrameworkCore;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using SisGerenciador.src.Models;
 
 namespace SisGerenciador.src
 {
@@ -27,10 +30,36 @@ namespace SisGerenciador.src
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddRazorPages();
+            services.AddRazorPages();
 
             services.AddDbContext<MeuContexto>(options =>
               options.UseSqlServer(Configuration.GetConnectionString("MeuContexto")));
+
+            services.AddAuthorization(opt =>
+            {
+                opt.AddPolicy("Admin", policyBuilder => policyBuilder.RequireRole("Admin"));
+            });
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opt =>
+                {
+                    opt.Cookie.Name = "IdentityCookieeeeeeeeeeeeeah";
+                });
+
+            services.AddIdentity<Usuario, IdentityRole>(opt => {
+                opt.Password.RequireDigit = false;
+                opt.Password.RequiredLength = 6;
+                opt.Password.RequireLowercase = false;
+                opt.Password.RequireNonAlphanumeric = false;
+                opt.Password.RequireUppercase = false;
+
+                opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+
+                opt.SignIn.RequireConfirmedAccount = false;
+            })
+                .AddDefaultUI()
+                .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<MeuContexto>();
 
             services.AddMvc()
                 .AddFluentValidation(fvc =>
@@ -55,6 +84,7 @@ namespace SisGerenciador.src
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

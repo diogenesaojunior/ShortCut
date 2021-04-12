@@ -9,8 +9,8 @@ namespace SisGerenciador.Models.Validations
     {
         public UsuarioValidator()
         {
-            RuleFor(c => c.CPF)
-            .Must(IsCpf).WithMessage("CPF inválido!");
+            //RuleFor(c => c.CPF)
+            //.Must(IsCpf).WithMessage("CPF inválido!");
         
         }
 

@@ -28,12 +28,7 @@
                 <!--Menu-->
                 <div class="menu">
                     <ul class="ul">
-                        <li class="li">
-                            <a class="navbar-brand" id="login" asp-area="Identity" asp-page="/Account/Login"><div><b>Logar</b></div></a>
-                        </li>
-                        <li class="li">
-                            <a class="navbar-brand" id="register" asp-area="Identity" asp-page="/Account/Register"><div><b>Registrar</b></div></a>
-                        </li>
+                        <partial name="_LoginPartial" />
                         <li class="li">
                             <a class="navbar-brand" asp-area="" asp-controller="Alunos" asp-action="Index"><div>Alunos</div></a>
                         </li>

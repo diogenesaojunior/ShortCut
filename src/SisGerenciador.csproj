@@ -5,7 +5,40 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Identity\Pages\Account\AccessDenied.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\ConfirmEmail.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\ExternalLogin.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\ForgotPassword.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\Lockout.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\LoginWith2fa.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\Logout.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\ResendEmailConfirmation.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\ResetPassword.cshtml.cs" />
+    <Compile Remove="Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml.cs" />
     <Compile Remove="Controllers\AlunoController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Areas\Identity\Pages\Account\AccessDenied.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\ConfirmEmail.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\ExternalLogin.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\ForgotPassword.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Lockout.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\LoginWith2fa.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\Logout.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\RegisterConfirmation.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\ResendEmailConfirmation.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\ResetPassword.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\_StatusMessage.cshtml" />
+    <Content Remove="Areas\Identity\Pages\Account\_ViewImports.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

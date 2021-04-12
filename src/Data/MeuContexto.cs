@@ -1,10 +1,11 @@
 using SisGerenciador.src.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace SisGerenciador.src.Data
 {
-    public class MeuContexto : DbContext
+    public class MeuContexto : IdentityDbContext<Usuario>
     {
         public MeuContexto(DbContextOptions<MeuContexto> options) : base(options)
         {

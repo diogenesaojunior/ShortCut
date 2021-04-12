@@ -11,20 +11,20 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using SisGerenciador.Areas.Identity.Data;
+using SisGerenciador.src.Models;
 
 namespace SisGerenciador.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
-        private readonly UserManager<SisGerenciadorUser> _userManager;
-        private readonly SignInManager<SisGerenciadorUser> _signInManager;
+        private readonly UserManager<Usuario> _userManager;
+        private readonly SignInManager<Usuario> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<SisGerenciadorUser> signInManager, 
+        public LoginModel(SignInManager<Usuario> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<SisGerenciadorUser> userManager)
+            UserManager<Usuario> userManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

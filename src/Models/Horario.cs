@@ -17,7 +17,7 @@ namespace SisGerenciador.src.Models
 
         [Display(Name = "Turno")]
         [Required(ErrorMessage = "Turno é obrigatório")]
-        public int Turno { get; set; }
+        public string Turno { get; set; }
 
         public HoraAula HoraAula { get; set; }
         public int HoraAulaId { get; set; }
