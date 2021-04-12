@@ -11,7 +11,7 @@ using SisGerenciador.src.Models;
 
 namespace SisGerenciador.Views
 {
-    [Authorize(Roles = "Gerente")]
+    [Authorize(Roles = "Admin")]
     public class PreRequisitosController : Controller
     {
         private readonly MeuContexto _context;

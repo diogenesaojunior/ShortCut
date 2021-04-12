@@ -78,7 +78,7 @@ namespace SisGerenciador.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
-            //public bool isAdmin { get; set; }
+            public bool IsAdmin { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -93,7 +93,12 @@ namespace SisGerenciador.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new Usuario { UserName = Input.Email, Email = Input.Email, isAdmin = false/*, Nome = Input.Nome , CPF = Input.CPF */};
+                var user = new Usuario {
+                    UserName = Input.Email,
+                    Email = Input.Email,
+                    isAdmin = Input.IsAdmin
+                };
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -106,6 +111,7 @@ namespace SisGerenciador.Areas.Identity.Pages.Account
                     }
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
